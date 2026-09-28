@@ -605,47 +605,33 @@ def get_client(api_key):
 
 
 def select_model(client):
-
-    # Use a known/current default.
     default = os.getenv(
         "GEMINI_MODEL",
-        "gemini-2.5-flash"
+        "gemini-3.8-flash"
     ).strip()
 
-    # Keep fallback models conservative.
     candidates = [
         default,
-        "gemini-2.5-flash",
-        "gemini-2.5-flash-lite",
+        "gemini-3.8-flash",
     ]
 
     last_error = None
     seen = set()
 
     for model in candidates:
-
-        if not model:
-            continue
-
-        if model in seen:
+        if not model or model in seen:
             continue
 
         seen.add(model)
 
         try:
-            client.models.get(
-                model=model
-            )
-
+            client.models.get(model=model)
             return model
 
         except Exception as exc:
-
             last_error = exc
-
             text = str(exc).lower()
 
-            # Authentication/quota errors should not be hidden.
             if any(
                 x in text
                 for x in (
@@ -1313,4 +1299,4 @@ if __name__ == "__main__":
                 "1"
             ) == "1"
         ),
-    )
+    )   
