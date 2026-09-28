@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VibeCraft Attendance Intelligence</title>
+<style>
+:root{--bg:#080d18;--panel:#111a2b;--panel2:#172238;--line:#293956;--text:#f3f0df;--muted:#9ba8bd;--green:#8bd646;--amber:#ffb43b;--red:#ff5f67;--blue:#61b5ff;--shadow:0 18px 50px rgba(0,0,0,.35)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0,#263b63 0,#10192b 34%,#080d18 70%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
+header{position:sticky;top:0;z-index:20;background:rgba(8,13,24,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:900;letter-spacing:2px}.brand span{color:var(--green)}button,select,input{font:inherit}button{border:0;cursor:pointer}.nav button{background:transparent;color:var(--muted);padding:9px 12px;border-radius:9px}.nav button.active,.nav button:hover{background:#1b2942;color:white}
+.wrap{max-width:1400px;margin:auto;padding:26px}.hero{display:grid;grid-template-columns:1.6fr .8fr;gap:18px}.card{background:linear-gradient(145deg,rgba(23,34,56,.96),rgba(13,21,36,.96));border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:22px}.hero h1{font-size:42px;margin:0 0 8px}.hero p{color:var(--muted);line-height:1.6}.controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:20px}label{font-size:12px;color:var(--muted);display:block;margin-bottom:6px}select,input{width:100%;background:#0b1322;border:1px solid var(--line);color:white;padding:12px;border-radius:10px;outline:none}select:focus,input:focus{border-color:var(--green)}.primary{background:var(--green);color:#07100a;font-weight:900;padding:12px 18px;border-radius:10px}.danger{color:var(--red)}.metric{font-size:38px;font-weight:900}.pill{display:inline-flex;padding:6px 10px;border-radius:99px;font-size:12px;font-weight:800}.safe{background:rgba(139,214,70,.14);color:var(--green)}.watch{background:rgba(255,180,59,.14);color:var(--amber)}.critical{background:rgba(255,95,103,.14);color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}.metric-card{min-height:120px}.metric-card small{color:var(--muted)}.section-title{margin:30px 0 12px;font-size:20px}.subject{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.5fr;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid #22304a}.bar{height:9px;background:#26334b;border-radius:20px;overflow:hidden}.bar i{display:block;height:100%;background:var(--green)}.bar.warn i{background:var(--amber)}.bar.bad i{background:var(--red)}.table-head{color:var(--muted);font-size:11px;text-transform:uppercase}.notice{padding:16px;border-radius:13px;margin-top:14px;border:1px solid var(--line)}.notice.red{border-color:#6e2c34;background:rgba(255,95,103,.08)}.notice.green{border-color:#345d29;background:rgba(139,214,70,.07)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.chart{height:260px;display:flex;align-items:flex-end;gap:8px;padding:15px 8px;border-left:1px solid var(--line);border-bottom:1px solid var(--line)}.barcol{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px}.barcol i{width:70%;max-width:42px;background:linear-gradient(#61b5ff,#8bd646);border-radius:6px 6px 0 0;min-height:3px}.barcol b{font-size:10px;color:var(--muted);font-weight:600}.sim{display:grid;grid-template-columns:1fr 1fr;gap:20px}.big-result{font-size:50px;font-weight:900}.chat{position:fixed;right:24px;bottom:24px;z-index:50}.chatbtn{width:64px;height:64px;border-radius:50%;background:var(--green);font-size:28px;box-shadow:0 12px 30px rgba(0,0,0,.4)}.chatbox{position:absolute;right:0;bottom:78px;width:390px;height:540px;background:#0e1728;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);display:none;flex-direction:column;overflow:hidden}.chatbox.open{display:flex}.chathead{padding:15px;border-bottom:1px solid var(--line);font-weight:900}.messages{padding:14px;overflow:auto;flex:1}.msg{padding:10px 12px;border-radius:12px;margin:8px 0;line-height:1.45;font-size:13px;white-space:pre-wrap}.bot{background:#18253b}.user{background:#284d25;margin-left:35px}.chatinput{display:flex;gap:7px;padding:10px;border-top:1px solid var(--line)}.chatinput input{flex:1}.mini{font-size:12px;color:var(--muted);line-height:1.5}.attendance-row{display:grid;grid-template-columns:1fr 150px;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #22304a}.pct-input{position:relative}.pct-input input{padding-right:34px;font-size:16px;font-weight:800}.pct-input span{position:absolute;right:12px;top:12px;color:var(--muted);font-weight:800}.hidden{display:none}@media(max-width:900px){.hero,.two,.sim{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.controls{grid-template-columns:1fr}.subject{grid-template-columns:1.6fr 1fr 1fr}.subject>*:nth-child(4),.subject>*:nth-child(5){display:none}}@media(max-width:600px){.grid{grid-template-columns:1fr}.wrap{padding:14px}.hero h1{font-size:30px}.nav{display:none}.chatbox{width:calc(100vw - 28px);right:-10px}}
+
+/* Compact AI advisor: answers are intentionally short for quick dashboard use. */
+.chatbox{max-height:460px;}
+.messages{max-height:330px;}.msg strong{color:#ffffff}.ai-bullet{margin:5px 0 5px 2px}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">▣ VIBE<span>CRAFT</span> <small style="color:#73809a">ATTENDANCE INTELLIGENCE</small></div>
+  <div class="nav">
+    <a href="/" style="display:inline-block;color:var(--muted);text-decoration:none;padding:9px 12px;border-radius:9px">Room Finder</a>
+    <button class="active" onclick="showPage('dashboard',this)">Dashboard</button>
+    <button onclick="showPage('simulator',this)">What-If Lab</button>
+    <button onclick="showPage('planner',this)">Planner</button>
+  </div>
+</header>
+
+<main class="wrap">
+<section id="dashboard">
+  <div class="hero">
+    <div class="card">
+      <div class="pill safe">DATASET-DRIVEN ENGINE</div>
+      <h1>Know your attendance.<br><span style="color:var(--green)">Plan your future.</span></h1>
+      <p>Uses the supplied timetable schedules to calculate classes, 75% safety, 90% target, recovery possibility and future leave impact. The AI advisor uses the same calculation engine.</p>
+      <div class="controls">
+        <div><label>CLASS SECTION</label><select id="section" onchange="loadSection()"></select></div>
+        <div><label>TODAY / ATTENDANCE AS-OF</label><input id="planDate" type="date"></div>
+        <div><label>PLAN UNTIL</label><input id="endDate" type="date" value="2026-11-29"></div>
+      </div>
+    </div>
+    <div class="card">
+      <small>OVERALL ATTENDANCE</small>
+      <div class="metric" id="overall">—</div>
+      <div id="overallPill" class="pill safe">ENTER ATTENDANCE</div>
+      <p class="mini" style="margin-top:18px">Enter only the attendance percentage you see in your college portal. We calculate the timetable classes and future impact automatically.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card metric-card"><small>75% SAFE STATUS</small><div class="metric" id="safeCount">—</div><span class="mini">subjects currently safe</span></div>
+    <div class="card metric-card"><small>90% TARGET</small><div class="metric" id="targetCount">—</div><span class="mini">subjects that can reach 90%</span></div>
+    <div class="card metric-card"><small>CLASSES REMAINING</small><div class="metric" id="remaining">—</div><span class="mini">from planning date</span></div>
+    <div class="card metric-card"><small>CRITICAL SUBJECTS</small><div class="metric danger" id="criticalCount">—</div><span class="mini">mathematically unrecoverable</span></div>
+  </div>
+
+  <div class="section-title">Subject Health</div>
+  <div class="card">
+    <div class="subject table-head"><div>Subject</div><div>Current</div><div>Remaining</div><div>Max</div><div>Health</div></div>
+    <div id="subjects"></div>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <div class="section-title" style="margin-top:0">Your Current Attendance</div>
+      <p class="mini">Just enter the <b>current %</b> shown in your college portal. You do not need to calculate attended or conducted classes manually.</p>
+      <div id="inputs"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="margin-top:0">Semester Projection</div>
+      <div id="projection"></div>
+    </div>
+  </div>
+</section>
+
+<section id="insights" class="card" style="margin-top:18px">
+  <div class="section-title" style="margin-top:0">Attendance Health Visual</div>
+  <div id="healthChart" class="chart"></div>
+</section>
+
+<section id="simulator" class="hidden">
+  <div class="card">
+    <div class="pill watch">PHASE 2 • WHAT-IF LAB</div>
+    <h1>Attendance Simulator</h1>
+    <p class="mini">Test normal leave, On-Duty or Medical Leave against the real timetable. OD/Medical treatment is configurable in the rule switch below.</p>
+    <div class="sim">
+      <div>
+        <label>LEAVE TYPE</label>
+        <select id="leaveType"><option value="normal">Normal Leave / Absent</option><option value="od">On-Duty (protected)</option><option value="medical">Medical Leave (protected)</option></select>
+        <label style="margin-top:14px">START DATE</label><input id="leaveStart" type="date">
+        <label style="margin-top:14px">DAYS</label><input id="leaveDays" type="number" min="1" max="30" value="3">
+        <button class="primary" style="margin-top:15px;width:100%" onclick="simulateLeave()">SIMULATE FUTURE</button>
+      </div>
+      <div id="simResult" class="notice">Choose a scenario and simulate.</div>
+    </div>
+  </div>
+</section>
+
+<section id="planner" class="hidden">
+  <div class="card">
+    <div class="pill safe">ATTENDANCE TIME MACHINE</div>
+    <h1>Future Planner</h1>
+    <p class="mini">Pick a future date and see how many timetable classes remain from that point to the semester end.</p>
+    <div style="max-width:420px"><label>FUTURE DATE</label><input id="futureDate" type="date" onchange="renderPlanner()"></div>
+    <div id="plannerResult" style="margin-top:18px"></div>
+  </div>
+</section>
+</main>
+
+<div class="chat">
+  <div class="chatbox" id="chatbox">
+    <div class="chathead">✦ Attendance Advisor <span style="float:right;color:#73809a;cursor:pointer" onclick="toggleChat()">×</span></div>
+    <div class="messages" id="messages">
+      <div class="msg bot">Hi! I’m your AI Attendance Advisor. I can reason about your dashboard, timetable, simulations, calculations, and the VibeCraft project. Ask naturally — including follow-up questions.</div>
+    </div>
+    <div class="chatinput"><input id="chatInput" placeholder="Ask about your attendance..." onkeydown="if(event.key==='Enter')sendChat()"><button class="primary" onclick="sendChat()">➤</button></div>
+  </div>
+  <button class="chatbtn" onclick="toggleChat()">✦</button>
+</div>
+
+<script>
+const semesterStart="2026-08-29";
+const semesterEndDefault="2026-11-29";
+const DAYS=["Monday","Tuesday","Wednesday","Thursday","Friday"];
+const TIMES=["09:00","09:50","10:50","11:40","12:30","01:20","02:10","03:10","04:00"];
+
+/* The timetable data below is transcribed from the supplied PDFs.
+   Each non-empty timetable period is treated as one scheduled attendance class.
+   Slot letters are mapped to the subject table for that section. */
+const DATA={
+"IV ECE-A":{
+subjects:{A:"Behavioural Psychology",B:"Wireless Communication and Antenna Systems",C:"Computer Communication and Network Security",D:"Semiconductor Memory Design",E:"Scripting Language for Electronic Design Automation",F:"Machine Learning for All",LAB:"Computer Communication and Network Security Lab"},
+week:{
+Monday:["C","C","A","D","","","","",""],Tuesday:["C","D","B","F","","","","",""],Wednesday:["B","LAB","E","F","","","","",""],Thursday:["F","A","E","B","","","","",""],Friday:["C","A","D","E","","","","",""]
+}},
+"IV ECE-B":{
+subjects:{A:"Behavioural Psychology",B:"Wireless Communication and Antenna Systems",C:"Computer Communication and Network Security",D:"Semiconductor Memory Design",E:"Scripting Language for Electronic Design Automation",F:"Machine Learning for All",LAB:"Computer Communication and Network Security Lab"},
+week:{
+Monday:["C","A","E","F","","","","",""],Tuesday:["C","E","F","B","","","","",""],Wednesday:["C","D","A","B","","","","",""],Thursday:["D","B","LAB","A","","","","",""],Friday:["E","D","F","","","","","",""]
+}},
+"III ECE-A":{
+subjects:{A:"Microprocessor, Microcontroller, and Interfacing Techniques",B:"VLSI Design and Technology",C:"System and Network on Chip",D:"Machine Learning for All",E:"Discrete Mathematics",F:"Analytical and Logical Thinking Skills",G:"Community Connect",H:"Indian Art Form",LAB:"VLSI Design / Microprocessor Laboratory",BP:"B-Project"},
+week:{
+Monday:["E","B","B","A","","G-625","","",""],Tuesday:["H","D","B","BP","","","G-625","",""],Wednesday:["C","A","D","F","","","","","LAB"],Thursday:["A","E","C","F","","","","",""],Friday:["D","A","E","C","","LAB","","",""]
+}},
+"III ECE-B":{
+subjects:{A:"Discrete Mathematics",B:"Microprocessor, Microcontroller, and Interfacing Techniques",C:"VLSI Design and Technology",D:"System and Network on Chip",E:"Machine Learning for All",F:"Community Connect",G:"Analytical and Logical Thinking Skills",H:"Indian Art Form",LAB:"VLSI Design / Microprocessor Laboratory",BP:"B-Project"},
+week:{
+Monday:["LAB","","","","","E","B","A","D"],Tuesday:["G-625","","","","","F","B","D","C"],Wednesday:["G-625","","","","","BP","B","A","H"],Thursday:["LAB","","","","","A","C","E","F"],Friday:["","","","","","C","A","E","D"]
+}},
+"III ECE-DS":{
+subjects:{A:"Discrete Mathematics",B:"Microprocessor, Microcontroller, and Interfacing Techniques",C:"VLSI Design and Technology",D:"Machine Learning for All",E:"Database Design and Management",F:"Community Connect",G:"Analytical and Logical Thinking Skills",H:"Indian Art Form",LAB:"VLSI Design / Microprocessor Laboratory",BP:"B-Project"},
+week:{
+Monday:["E","B","C","A","","","","",""],Tuesday:["C","B","D","F","","LAB","","",""],Wednesday:["H","B","A","C","","","","G-625",""],Thursday:["A","D","E","F","","","","",""],Friday:["D","A","E","BP","","G-625","","","LAB"]
+}},
+"III BME":{
+subjects:{A:"Probability and Statistics",B:"Microcontrollers and Its Applications in Medicine",C:"Biomedical Signal Processing",D:"Biometrics",E:"Modern Wireless Communication System",F:"Principles of Medical Imaging",G:"Analytical and Logical Thinking Skills",H:"Indian Art Form",I:"Community Connect"},
+week:{
+Monday:["G-625","","I","","","E","B","F","H"],Tuesday:["","","B","A","","C","D","A","B"],Wednesday:["","","A","","","C","A","F","D"],Thursday:["","","","I","","A","C","E","B"],Friday:["I","","C","D","","F","A","D","E"]
+}},
+"II ECE-DS A":{
+subjects:{A:"Transforms and Boundary Value Problems",B:"Solid State Devices",C:"Computer Organization and Architecture",D:"Digital Logic Design",E:"Electromagnetic Theory and Interference",F:"Professional Ethics",G:"Universal Human Values-II",H:"Verbal Reasoning",I:"Social Engineering",LAB:"Devices and Digital IC Laboratory"},
+week:{
+Monday:["E","A","I","","","G-602","","","LAB"],Tuesday:["C","A","E","D","","G-602","","H-TB-106",""],Wednesday:["A","B","C","D","","","","",""],Thursday:["B","C","A","F","","LAB","","B",""],Friday:["D","B","E","C","","","","",""]
+}},
+"II ECE-DS B":{
+subjects:{A:"Transforms and Boundary Value Problems",B:"Solid State Devices",C:"Computer Organization and Architecture",D:"Digital Logic Design",E:"Electromagnetic Theory and Interference",F:"Professional Ethics",G:"Universal Human Values-II",H:"Verbal Reasoning",I:"Social Engineering",LAB:"Devices and Digital IC Laboratory"},
+week:{
+Monday:["","","LAB","","","D","B","C","I"],Tuesday:["LAB","","","","","C","D","E","A"],Wednesday:["G-401","","","","","I","E","A","D"],Thursday:["G-401","","LAB","","","A","C","B","E"],Friday:["H-TB-106","","","","","F","A","B","C"]
+}},
+"II BME":{
+subjects:{A:"Transforms and Boundary Value Problems",B:"Biomedical Signals and Systems",C:"Electric and Electronic Circuits",D:"Digital Logic for Medical Systems",E:"Medical Physics",F:"Professional Ethics",G:"Universal Human Values-II",H:"Verbal Reasoning",I:"Social Engineering"},
+week:{
+Monday:["E","C","I","","","G-ROOM","","","",""],Tuesday:["C","E","B","A","","H-TB-106","","A","B"],Wednesday:["B","D","A","","","H-TB-106","G-602","F","D"],Thursday:["A","E","B","D","","","","E",""],Friday:["F","A","C","D","","","","G-602",""]
+}},
+"I ECE-A":{
+subjects:{E:"Philosophy of Engineering",A:"Advanced Calculus and Complex Analysis",B:"Chemistry",C:"Electronic System and PCB Design",D:"Programming for Problem Solving",F:"Biology",G:"German",CDC:"General Aptitude",NSS:"NSS",WORKSHOP:"Basic Civil and Mechanical Workshop"},
+week:{
+Monday:["E","E","B","A","","CHE-LAB","","F","CDC"],Tuesday:["C","B","A","D","","WORKSHOP","","A","D"],Wednesday:["B","E","D","","","PPS-LAB","","C","C"],Thursday:["NSS","G","A","","","CDC","","NSS","NSS"],Friday:["D","A","C","B","","G","","",""]
+}},
+"I ECE-B / EEE":{
+subjects:{E:"Philosophy of Engineering",A:"Advanced Calculus and Complex Analysis",B:"Chemistry",C:"Biology",D:"Programming for Problem Solving",F:"German",G:"Electrical Circuits for EEE",CDC:"General Aptitude",NSS:"NSS"},
+week:{
+Monday:["CDC","F","CHE-LAB","","","E","E","B","A"],Tuesday:["F","WORKSHOP","WORKSHOP","WORKSHOP","","C","B","A","D"],Wednesday:["F","PPS-LAB","CDC","CDC","PPS-LAB","B","E","D",""],Thursday:["NSS","NSS","C","A","","D","G","F",""],Friday:["WORKSHOP","WORKSHOP","WORKSHOP","WORKSHOP","","G","B","A",""]
+}},
+"I ECE-DS":{
+subjects:{E:"Philosophy of Engineering",A:"Advanced Calculus and Complex Analysis",B:"Chemistry",C:"Electronic System and PCB Design",D:"Programming for Problem Solving",F:"Biology",G:"German",CDC:"General Aptitude",NSS:"NSS"},
+week:{
+Monday:["F","CDC","PPS-LAB","","","E","E","B","A"],Tuesday:["CHE-LAB","CHE-LAB","NSS","NSS","","C","B","A","D"],Wednesday:["CDC","CDC","NSS","NSS","","B","B","D",""],Thursday:["F","A","D","","","G","B","B","B"],Friday:["G","G","G","G","PPS-LAB","","","",""]
+}},
+"I Biotech-B / Biomed":{
+subjects:{E:"Philosophy of Engineering",A:"Advanced Calculus and Complex Analysis",B:"Chemistry",D:"Programming for Problem Solving",C:"Cell Biology for Biotech",F:"Biochemistry for Biotech",G:"Biology: Human physiology and anatomy",YOGA:"Physical and Mental Health using Yoga",JAP:"Japanese"},
+week:{
+Monday:["C","YOGA","YOGA","F","","E","E","A","B"],Tuesday:["D","CDC","C","F","","B","A","D",""],Wednesday:["","","","D","","B","B","A","D"],Thursday:["","A","C","G","","","JAP","JAP","JAP"],Friday:["F","CDC","CDC","JAP","","JAP","","PPS","PPS"]
+}}
+};
+
+function $(id){return document.getElementById(id)}
+function iso(d){return d.toISOString().slice(0,10)}
+function parseDate(s){return new Date(s+"T00:00:00")}
+function addDays(d,n){let x=new Date(d);x.setDate(x.getDate()+n);return x}
+function eachDate(a,b){let out=[];for(let d=parseDate(a);d<=parseDate(b);d=addDays(d,1))out.push(new Date(d));return out}
+function getSchedule(section,start,end){
+  const cfg=DATA[section], out=[];
+  for(const d of eachDate(start,end)){
+    const day=DAYS[d.getDay()-1];
+    if(!day)continue;
+    const row=cfg.week[day]||[];
+    row.forEach((slot,i)=>{
+      if(!slot) return;
+      // A timetable token is an attendance class when it maps to a real subject.
+      // Room/location tokens such as G-625 or H-TB-106 are ignored.
+      const subject=cfg.subjects[slot];
+      if(subject){
+        out.push({date:iso(d),day,period:i+1,slot,subject});
+      }
+    });
+  }
+  return out;
+}
+let state={};
+function init(){
+  const sel=$("section");
+  Object.keys(DATA).forEach(k=>{let o=document.createElement("option");o.value=k;o.textContent=k;sel.appendChild(o)});
+  $("planDate").value=iso(new Date());
+  $("leaveStart").value=iso(addDays(new Date(),1));
+  $("futureDate").value=iso(addDays(new Date(),7));
+  loadSection();
+}
+function subjectsFor(section){return DATA[section].subjects}
+function loadSection(){
+  const sec=$("section").value, subs=subjectsFor(sec);
+  state.att=JSON.parse(localStorage.getItem("vc_att_"+sec)||"{}");
+  $("inputs").innerHTML=Object.entries(subs).map(([slot,name])=>{
+    const v=state.att[name]||{percentage:""};
+    return `<div class="attendance-row"><div><b>${name}</b><div class="mini">${slot} • current attendance</div></div><div class="pct-input"><input type="number" min="0" max="100" step="0.1" value="${v.percentage??""}" placeholder="e.g. 82.5" data-sub="${encodeURIComponent(name)}"><span>%</span></div></div>`
+  }).join("");
+  document.querySelectorAll("#inputs input").forEach(el=>el.addEventListener("input",saveInputs));
+  render();
+}
+function saveInputs(){
+  const sec=$("section").value,a={};
+  document.querySelectorAll("#inputs input").forEach(el=>{
+    const n=decodeURIComponent(el.dataset.sub);
+    let pct=el.value===""?"":Math.max(0,Math.min(100,Number(el.value)||0));
+    a[n]={percentage:pct};
+  });
+  state.att=a;localStorage.setItem("vc_att_"+sec,JSON.stringify(a));render();
+}
+function analysis(){
+  const sec=$("section").value;
+  const asOf=$("planDate").value||semesterStart;
+  const end=$("endDate").value||semesterEndDefault;
+  const futureStart=iso(addDays(parseDate(asOf),1));
+  const scheduleFuture=getSchedule(sec,futureStart,end);
+  const schedulePast=getSchedule(sec,semesterStart,asOf);
+  const a=state.att||{},subs=subjectsFor(sec),rows=[];
+  Object.entries(subs).forEach(([slot,name])=>{
+    const raw=a[name]||{percentage:""};
+    const pct=raw.percentage===""||raw.percentage==null?null:Number(raw.percentage);
+    const hasData=Number.isFinite(pct)&&pct>=0&&pct<=100;
+    const conducted=schedulePast.filter(x=>x.subject===name).length;
+    const rem=scheduleFuture.filter(x=>x.subject===name).length;
+    const attended=hasData?conducted*pct/100:0;
+    const max=hasData&&conducted+rem>0?100*(attended+rem)/(conducted+rem):null;
+    const need75=hasData?Math.max(0,Math.ceil(.75*(conducted+rem)-attended)):null;
+    const need90=hasData?Math.max(0,Math.ceil(.90*(conducted+rem)-attended)):null;
+    const critical=hasData&&rem>0&&need75>rem;
+    rows.push({slot,name,pct,conducted,attended,rem,max,need75,need90,critical,hasData});
+  });
+  return {schedule:scheduleFuture,rows,asOf,end};
+}
+function render(){
+  const x=analysis(),rows=x.rows,dataRows=rows.filter(r=>r.hasData);
+  const totalC=dataRows.reduce((s,r)=>s+r.conducted,0);
+  const totalA=dataRows.reduce((s,r)=>s+r.attended,0);
+  const totalR=dataRows.reduce((s,r)=>s+r.rem,0);
+  const overall=totalC?100*totalA/totalC:null;
+  $("overall").textContent=overall==null?"—":overall.toFixed(1)+"%";
+  $("overallPill").textContent=overall==null?"ENTER CURRENT %":overall>=90?"90% TARGET":overall>=75?"SAFE ZONE":"BELOW 75%";
+  $("overallPill").className="pill "+(overall==null?"watch":overall>=75?"safe":"critical");
+  $("safeCount").textContent=dataRows.length?dataRows.filter(r=>r.pct>=75).length+"/"+rows.length:"—";
+  $("targetCount").textContent=dataRows.length?dataRows.filter(r=>r.max>=90).length+"/"+rows.length:"—";
+  $("remaining").textContent=x.schedule.length;
+  $("criticalCount").textContent=dataRows.length?dataRows.filter(r=>r.critical).length:"—";
+  $("subjects").innerHTML=rows.map(r=>{
+    let cls="watch",status="ENTER CURRENT %",detail=`${r.slot} • enter the % from your portal`,pct=0;
+    if(r.hasData){
+      pct=r.pct; cls=r.critical||pct<75?"critical":pct<85?"watch":"safe";
+      status=r.critical?"IRREVERSIBLE":cls==="safe"?"SAFE":cls==="watch"?"WATCH":"CRITICAL";
+      detail=`${r.slot} • ${r.conducted} classes so far • need ${r.need75}/${r.rem} to stay ≥75%`;
+    }
+    return `<div class="subject"><div><b>${r.name}</b><div class="mini">${detail}</div></div><div><b>${r.hasData?pct.toFixed(1)+"%":"—"}</b></div><div>${r.rem}</div><div>${r.hasData?r.max.toFixed(1)+"%":"—"}</div><div><div class="bar ${cls==='critical'?'bad':cls==='watch'?'warn':''}"><i style="width:${r.hasData?Math.min(100,Math.max(0,pct)):0}%"></i></div><span class="pill ${cls}" style="margin-top:5px">${status}</span></div></div>`;
+  }).join("");
+  if(!dataRows.length){
+    $("projection").innerHTML=`<div class="notice"><div class="big-result">—</div><b>Enter your current attendance %</b><p class="mini">Use the percentage shown in your college portal. The timetable engine automatically counts scheduled classes from ${semesterStart} to ${x.asOf} and future classes after that date.</p></div><div class="notice green"><b>✓ No manual class counting</b><p class="mini">You only enter one number per subject, such as <b>82.5%</b>.</p></div>`;
+    return;
+  }
+  const maxOverall=totalC+totalR?100*(totalA+totalR)/(totalC+totalR):0;
+  $("projection").innerHTML=`<div class="notice ${maxOverall>=75?"green":"red"}"><div class="big-result">${maxOverall.toFixed(1)}%</div><b>Maximum possible if every future class is attended</b><p class="mini">Calculated from your entered percentages and the supplied timetable.</p></div>${dataRows.filter(r=>r.critical).map(r=>`<div class="notice red"><b>⚠ ${r.name}</b><p class="mini">Even attending every remaining scheduled class reaches only ${r.max.toFixed(1)}%. The 75% threshold cannot be recovered from this date.</p></div>`).join("")||`<div class="notice green"><b>✓ No irreversible detention detected</b><p class="mini">Based on the percentages entered and the timetable window.</p></div>`}`;
+  renderHealthChart();
+}
+function simulateLeave(){
+  const sec=$("section").value, type=$("leaveType").value, start=$("leaveStart").value, days=Math.max(1,Math.min(30,Number($("leaveDays").value)||1));
+  if(!start){$("simResult").innerHTML='<div class="notice red">Choose a start date first.</div>';return;}
+  const dates=eachDate(start,iso(addDays(parseDate(start),days-1))), sched=dates.flatMap(d=>getSchedule(sec,iso(d),iso(d)));
+  const affected=sched;
+  const x=analysis(), map={};x.rows.forEach(r=>map[r.name]=r);
+  let lines=`<h2>${type==="normal"?"Normal Leave":type==="od"?"On-Duty":"Medical Leave"} • ${days} day(s)</h2>`;
+  lines+=`<p class="mini">${affected.length} timetable classes found in the selected date range.</p>`;
+  if(type!=="normal"){lines+=`<div class="notice green"><b>Protected scenario</b><p class="mini">This simulation treats OD/Medical classes as protected (not added to the absent denominator). Change this rule if your institution's official policy differs.</p></div>`}
+  const counts={};affected.forEach(c=>counts[c.subject]=(counts[c.subject]||0)+1);
+  Object.entries(counts).forEach(([sub,n])=>{
+    const r=map[sub];if(!r)return;
+    const baseConducted=r.conducted, baseAttended=r.attended, absent=type==="normal"?n:0, nc=baseConducted+absent, na=baseAttended, pct=nc?100*na/nc:r.pct;
+    lines+=`<div class="notice ${pct<75?"red":"green"}"><b>${sub}</b><br>Current: ${r.pct==null?"—":r.pct.toFixed(1)+"%"} → Projected: <strong>${pct.toFixed(1)}%</strong><p class="mini">${n} scheduled class(es) affected. ${pct<75?"⚠ Below 75%.": "✓ Remains at/above 75%."}</p></div>`;
+  });
+  const results=[];
+  Object.entries(counts).forEach(([sub,n])=>{const r=map[sub];if(!r)return;const absent=type==="normal"?n:0;const nc=r.conducted+absent;const na=r.attended;const pct=nc?100*na/nc:r.pct;results.push({subject:sub,classes_affected:n,current_percent:r.pct,projected_percent:pct,below_75:pct<75});});
+  window.lastSimulation={type,section:sec,start_date:start,days,results,protected_demo_rule:type!=="normal",affected_classes:affected};
+  $("simResult").innerHTML=lines;
+}
+function renderHealthChart(){
+  const host=$("healthChart");
+  if(!host)return;
+  const rows=analysis().rows.filter(r=>r.hasData);
+  if(!rows.length){host.innerHTML='<div class="mini">Enter attendance percentages to visualize subject health.</div>';return;}
+  host.innerHTML=rows.map(r=>{
+    const h=Math.max(4,Math.min(100,r.pct));
+    const cls=r.pct<75?'bad':r.pct<85?'warn':'';
+    return `<div class="barcol" title="${escapeHtml(r.name)}: ${r.pct.toFixed(1)}%"><span class="mini">${r.pct.toFixed(0)}%</span><i class="${cls}" style="height:${h}%"></i><b>${escapeHtml(r.slot)}</b></div>`;
+  }).join('');
+}
+function renderPlanner(){
+  const d=$("futureDate").value||iso(new Date()),end=$("endDate").value||semesterEndDefault,sec=$("section").value;
+  if(d>end){$("plannerResult").innerHTML=`<div class="notice red">Future date is after the semester end.</div>`;return}
+  const sched=getSchedule(sec,d,end), counts={};sched.forEach(x=>counts[x.subject]=(counts[x.subject]||0)+1);
+  $("plannerResult").innerHTML=`<div class="grid">${Object.entries(counts).map(([s,n])=>`<div class="card"><small>${s}</small><div class="metric">${n}</div><span class="mini">scheduled classes remaining</span></div>`).join("")}</div>`;
+}
+function showPage(id,btn){["dashboard","simulator","planner"].forEach(x=>$(x).classList.toggle("hidden",x!==id));document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));btn.classList.add("active");if(id==="planner")renderPlanner();if(id==="dashboard")renderHealthChart()}
+function toggleChat(){$("chatbox").classList.toggle("open");if($("chatbox").classList.contains("open"))setTimeout(()=>$("chatInput").focus(),50)}
+function escapeHtml(v){return String(v).replace(/[&<>\"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]))}
+function formatAIText(v){
+  let s=escapeHtml(v).trim();
+  s=s.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>");
+  s=s.replace(/^\s*[-•]\s+(.+)$/gm,"<div class=\"ai-bullet\">• $1</div>");
+  s=s.replace(/\n{2,}/g,"<br><br>").replace(/\n/g,"<br>");
+  return s;
+}
+function chatHistory(){return [...document.querySelectorAll("#messages .msg")].map(el=>({role:el.classList.contains("user")?"user":"assistant",content:el.textContent})).slice(-12)}
+function aiContext(){const x=analysis();const attendance={};Object.entries(state.att||{}).forEach(([name,v])=>attendance[name]={percentage:v.percentage===""?null:Number(v.percentage)});return {section:$("section").value,planning_date:$("planDate").value,semester_end:$("endDate").value,attendance,subjects:x.rows.map(r=>({subject:r.name,slot:r.slot,current_percent:r.pct,conducted:r.conducted,attended:r.attended,remaining:r.rem,max_possible:r.max,need_75:r.need75,need_90:r.need90,critical:r.critical,has_data:r.hasData})),scheduled_classes:x.schedule.slice(0,500),simulation:window.lastSimulation||null}}
+async function sendChat(){const input=$("chatInput"),q=input.value.trim();if(!q)return;$("messages").innerHTML+=`<div class="msg user">${escapeHtml(q)}</div>`;input.value="";input.disabled=true;const typing=document.createElement("div");typing.className="msg bot";typing.id="typing";typing.textContent="Thinking…";$("messages").appendChild(typing);$("messages").scrollTop=$("messages").scrollHeight;try{const history=chatHistory().slice(0,-1);const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:q,history,context:aiContext()})});const data=await res.json();$("typing")?.remove();$("messages").innerHTML+=`<div class="msg bot">${formatAIText(data.answer||data.error||"I couldn't generate a response.")}</div>`}catch(e){$("typing")?.remove();$("messages").innerHTML+=`<div class="msg bot">The Gemini AI service could not be reached. Check the Flask terminal and your GEMINI_API_KEY configuration.</div>`}input.disabled=false;input.focus();$("messages").scrollTop=$("messages").scrollHeight}
+$("planDate").addEventListener("change",render);
+$("endDate").addEventListener("change",render);
+init();
+</script>
+</body>
+</html>

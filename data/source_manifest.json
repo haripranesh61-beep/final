@@ -1,0 +1,16 @@
+{
+  "uploaded_files": [
+    "I year Time Table SEEE.pdf",
+    "II BME.pdf",
+    "II ECE DS A.pdf",
+    "II ECE DS B.pdf",
+    "III BME.pdf",
+    "III ECE A.pdf",
+    "III ECE B.pdf",
+    "III ECE DS.pdf",
+    "IV ECE A.pdf",
+    "IV ECE B.pdf"
+  ],
+  "source_handling": "The timetable information was normalized from the rendered timetable pages. The original PDFs are not copied into the app bundle.",
+  "ac_note": "No AC attribute appears in the supplied timetable PDFs."
+}

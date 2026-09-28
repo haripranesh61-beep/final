@@ -1,0 +1,1586 @@
+{
+  "title": "VibeCraft Round 2 \u2014 Smart-Search Floor Manager",
+  "source_note": "Normalized from the uploaded timetable PDFs. Active view uses the 2026-27 sheets; the first uploaded PDF contains four older 2024-25 sheets and is kept as archive data. Only timetable occupancy is treated as factual. AC/capacity are not present in the uploaded files.",
+  "sections": [
+    {
+      "id": "II-BME",
+      "name": "II BME",
+      "semester": "III",
+      "source": "II BME.pdf",
+      "venue": "IST 602",
+      "session": "FN",
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:50",
+          "end": "10:40"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:40",
+          "end": "12:30"
+        },
+        {
+          "period": 5,
+          "start": "12:30",
+          "end": "13:20",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:20",
+          "end": "14:10"
+        },
+        {
+          "period": 7,
+          "start": "14:10",
+          "end": "15:00"
+        },
+        {
+          "period": 8,
+          "start": "15:10",
+          "end": "16:00"
+        },
+        {
+          "period": 9,
+          "start": "16:00",
+          "end": "16:50"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          null,
+          "DLMS/EEC-107,309",
+          "DLMS/EEC-107,309",
+          null,
+          null
+        ],
+        "Tue": [
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          null,
+          "H-TB-106",
+          null,
+          null,
+          null
+        ],
+        "Wed": [
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          null,
+          null,
+          "H-TB-106",
+          "G-602",
+          null,
+          null
+        ],
+        "Thu": [
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          null,
+          null,
+          null,
+          "DLMS/EEC-107,309",
+          "DLMS/EEC-107,309"
+        ],
+        "Fri": [
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          null,
+          null,
+          "G-602",
+          null,
+          null
+        ]
+      },
+      "dataset_status": "active-2026-27"
+    },
+    {
+      "id": "II-ECE-DS-A",
+      "name": "II ECE-DS A",
+      "semester": "III",
+      "source": "II ECE DS A.pdf",
+      "venue": "IST 416",
+      "session": "FN",
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:50",
+          "end": "10:40"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:40",
+          "end": "12:30"
+        },
+        {
+          "period": 5,
+          "start": "12:30",
+          "end": "13:20",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:20",
+          "end": "14:10"
+        },
+        {
+          "period": 7,
+          "start": "14:10",
+          "end": "15:00"
+        },
+        {
+          "period": 8,
+          "start": "15:10",
+          "end": "16:00"
+        },
+        {
+          "period": 9,
+          "start": "16:00",
+          "end": "16:50"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "IST 416",
+          "IST 416",
+          "IST 416",
+          "IST 416",
+          null,
+          "G-602",
+          "G-602",
+          "LAB-309/107",
+          "LAB-309/107"
+        ],
+        "Tue": [
+          "IST 416",
+          "IST 416",
+          "IST 416",
+          "IST 416",
+          null,
+          "G-602",
+          null,
+          "H-TB-106",
+          "H-TB-106"
+        ],
+        "Wed": [
+          "IST 416",
+          "IST 416",
+          "IST 416",
+          "IST 416",
+          null,
+          null,
+          "H-TB-106",
+          null,
+          null
+        ],
+        "Thu": [
+          "IST 416",
+          "IST 416",
+          "IST 416",
+          "IST 416",
+          null,
+          "LAB-309/107",
+          "LAB-309/107",
+          null,
+          null
+        ],
+        "Fri": [
+          "IST 416",
+          "IST 416",
+          "IST 416",
+          "IST 416",
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "dataset_status": "active-2026-27"
+    },
+    {
+      "id": "II-ECE-DS-B",
+      "name": "II ECE-DS B",
+      "semester": "III",
+      "source": "II ECE DS B.pdf",
+      "venue": "IST 411",
+      "session": "AN",
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:50",
+          "end": "10:40"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:40",
+          "end": "12:30"
+        },
+        {
+          "period": 5,
+          "start": "12:30",
+          "end": "13:20",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:20",
+          "end": "14:10"
+        },
+        {
+          "period": 7,
+          "start": "14:10",
+          "end": "15:00"
+        },
+        {
+          "period": 8,
+          "start": "15:10",
+          "end": "16:00"
+        },
+        {
+          "period": 9,
+          "start": "16:00",
+          "end": "16:50"
+        }
+      ],
+      "days": {
+        "Mon": [
+          null,
+          null,
+          "LAB-309/107",
+          "LAB-309/107",
+          null,
+          "IST 411",
+          "IST 411",
+          "IST 411",
+          "IST 411"
+        ],
+        "Tue": [
+          "LAB-309/107",
+          "LAB-309/107",
+          null,
+          null,
+          null,
+          "IST 411",
+          "IST 411",
+          "IST 411",
+          "IST 411"
+        ],
+        "Wed": [
+          "G-401",
+          "G-401",
+          null,
+          null,
+          null,
+          "IST 411",
+          "IST 411",
+          "IST 411",
+          "IST 411"
+        ],
+        "Thu": [
+          "G-401",
+          "G-401",
+          "H-TB-106",
+          "H-TB-106",
+          null,
+          "IST 411",
+          "IST 411",
+          "IST 411",
+          "IST 411"
+        ],
+        "Fri": [
+          "H-TB-106",
+          null,
+          null,
+          null,
+          null,
+          "IST 411",
+          "IST 411",
+          "IST 411",
+          "IST 411"
+        ]
+      },
+      "dataset_status": "active-2026-27"
+    },
+    {
+      "id": "III-BME",
+      "name": "III BME",
+      "semester": "V",
+      "source": "III BME.pdf",
+      "venue": "IST 211",
+      "session": "AN",
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:50",
+          "end": "10:40"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:40",
+          "end": "12:30"
+        },
+        {
+          "period": 5,
+          "start": "12:30",
+          "end": "13:20",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:20",
+          "end": "14:10"
+        },
+        {
+          "period": 7,
+          "start": "14:10",
+          "end": "15:00"
+        },
+        {
+          "period": 8,
+          "start": "15:10",
+          "end": "16:00"
+        },
+        {
+          "period": 9,
+          "start": "16:00",
+          "end": "16:50"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "G-625",
+          null,
+          "MPMC LAB-107",
+          "MPMC LAB-107",
+          null,
+          "IST 211",
+          "IST 211",
+          "IST 211",
+          "IST 211"
+        ],
+        "Tue": [
+          "BIO DSP LAB-108",
+          "BIO DSP LAB-108",
+          "G-625",
+          null,
+          null,
+          "IST 211",
+          "IST 211",
+          "IST 211",
+          "IST 211"
+        ],
+        "Wed": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          "IST 211",
+          "IST 211",
+          "IST 211",
+          "IST 211"
+        ],
+        "Thu": [
+          null,
+          null,
+          null,
+          "I-108",
+          null,
+          "IST 211",
+          "IST 211",
+          "IST 211",
+          "IST 211"
+        ],
+        "Fri": [
+          "I-108",
+          null,
+          null,
+          null,
+          null,
+          "IST 211",
+          "IST 211",
+          "IST 211",
+          "IST 211"
+        ]
+      },
+      "dataset_status": "active-2026-27"
+    },
+    {
+      "id": "III-ECE-A",
+      "name": "III ECE-A",
+      "semester": "V",
+      "source": "III ECE A.pdf",
+      "venue": "IST 518",
+      "session": "FN",
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:50",
+          "end": "10:40"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:40",
+          "end": "12:30"
+        },
+        {
+          "period": 5,
+          "start": "12:30",
+          "end": "13:20",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:20",
+          "end": "14:10"
+        },
+        {
+          "period": 7,
+          "start": "14:10",
+          "end": "15:00"
+        },
+        {
+          "period": 8,
+          "start": "15:10",
+          "end": "16:00"
+        },
+        {
+          "period": 9,
+          "start": "16:00",
+          "end": "16:50"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          null,
+          "G-625",
+          "G-625",
+          null,
+          null
+        ],
+        "Tue": [
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          null,
+          null,
+          "G-625",
+          null,
+          null
+        ],
+        "Wed": [
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          null,
+          null,
+          null,
+          "LAB-108/309",
+          "LAB-108/309"
+        ],
+        "Thu": [
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Fri": [
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          null,
+          "LAB-108/309",
+          "LAB-108/309",
+          null,
+          null
+        ]
+      },
+      "dataset_status": "active-2026-27"
+    },
+    {
+      "id": "III-ECE-B",
+      "name": "III ECE-B",
+      "semester": "V",
+      "source": "III ECE B.pdf",
+      "venue": "IST 518",
+      "session": "AN",
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:50",
+          "end": "10:40"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:40",
+          "end": "12:30"
+        },
+        {
+          "period": 5,
+          "start": "12:30",
+          "end": "13:20",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:20",
+          "end": "14:10"
+        },
+        {
+          "period": 7,
+          "start": "14:10",
+          "end": "15:00"
+        },
+        {
+          "period": 8,
+          "start": "15:10",
+          "end": "16:00"
+        },
+        {
+          "period": 9,
+          "start": "16:00",
+          "end": "16:50"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "LAB-108/309",
+          "LAB-108/309",
+          null,
+          null,
+          null,
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          "IST 518"
+        ],
+        "Tue": [
+          "G-625",
+          "G-625",
+          null,
+          null,
+          null,
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          "IST 518"
+        ],
+        "Wed": [
+          "G-625",
+          null,
+          null,
+          null,
+          null,
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          "IST 518"
+        ],
+        "Thu": [
+          "LAB-108/309",
+          "LAB-108/309",
+          null,
+          null,
+          null,
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          "IST 518"
+        ],
+        "Fri": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          "IST 518",
+          "IST 518",
+          "IST 518",
+          "IST 518"
+        ]
+      },
+      "dataset_status": "active-2026-27"
+    },
+    {
+      "id": "III-ECE-DS",
+      "name": "III ECE-DS",
+      "semester": "V",
+      "source": "III ECE DS.pdf",
+      "venue": "IST 519",
+      "session": "FN",
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:50",
+          "end": "10:40"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:40",
+          "end": "12:30"
+        },
+        {
+          "period": 5,
+          "start": "12:30",
+          "end": "13:20",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:20",
+          "end": "14:10"
+        },
+        {
+          "period": 7,
+          "start": "14:10",
+          "end": "15:00"
+        },
+        {
+          "period": 8,
+          "start": "15:10",
+          "end": "16:00"
+        },
+        {
+          "period": 9,
+          "start": "16:00",
+          "end": "16:50"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "IST 519",
+          "IST 519",
+          "IST 519",
+          "IST 519",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Tue": [
+          "IST 519",
+          "IST 519",
+          "IST 519",
+          "IST 519",
+          null,
+          "LAB-108/107",
+          "LAB-108/107",
+          null,
+          null
+        ],
+        "Wed": [
+          "IST 519",
+          "IST 519",
+          "IST 519",
+          "IST 519",
+          null,
+          null,
+          null,
+          "G-625",
+          "G-625"
+        ],
+        "Thu": [
+          "IST 519",
+          "IST 519",
+          "IST 519",
+          "IST 519",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Fri": [
+          "IST 519",
+          "IST 519",
+          "IST 519",
+          "IST 519",
+          null,
+          "G-625",
+          "G-625",
+          "LAB-108/107",
+          "LAB-108/107"
+        ]
+      },
+      "dataset_status": "active-2026-27"
+    },
+    {
+      "id": "IV-ECE-A",
+      "name": "IV ECE-A",
+      "semester": "VII",
+      "source": "IV ECE A.pdf",
+      "venue": "IST 225",
+      "session": null,
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:50",
+          "end": "10:40"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:40",
+          "end": "12:30"
+        },
+        {
+          "period": 5,
+          "start": "12:30",
+          "end": "13:20",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:20",
+          "end": "14:10"
+        },
+        {
+          "period": 7,
+          "start": "14:10",
+          "end": "15:00"
+        },
+        {
+          "period": 8,
+          "start": "15:10",
+          "end": "16:00"
+        },
+        {
+          "period": 9,
+          "start": "16:00",
+          "end": "16:50"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "IST 225",
+          null,
+          "IST 225",
+          "IST 225",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Tue": [
+          "IST 225",
+          "IST 225",
+          "IST 225",
+          "IST 225",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Wed": [
+          "IST 225",
+          "LAB-IST 108",
+          "IST 225",
+          "IST 225",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Thu": [
+          "IST 225",
+          "IST 225",
+          "IST 225",
+          "IST 225",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Fri": [
+          "IST 225",
+          "IST 225",
+          "IST 225",
+          "IST 225",
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "dataset_status": "active-2026-27"
+    },
+    {
+      "id": "IV-ECE-B",
+      "name": "IV ECE-B",
+      "semester": "VII",
+      "source": "IV ECE B.pdf",
+      "venue": "IST 227",
+      "session": null,
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:50",
+          "end": "10:40"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:40",
+          "end": "12:30"
+        },
+        {
+          "period": 5,
+          "start": "12:30",
+          "end": "13:20",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:20",
+          "end": "14:10"
+        },
+        {
+          "period": 7,
+          "start": "14:10",
+          "end": "15:00"
+        },
+        {
+          "period": 8,
+          "start": "15:10",
+          "end": "16:00"
+        },
+        {
+          "period": 9,
+          "start": "16:00",
+          "end": "16:50"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "IST 227",
+          "IST 227",
+          "IST 227",
+          "IST 227",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Tue": [
+          "IST 227",
+          "IST 227",
+          "IST 227",
+          "IST 227",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Wed": [
+          "IST 227",
+          "IST 227",
+          "IST 227",
+          "IST 227",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Thu": [
+          "IST 227",
+          "IST 227",
+          "LAB-IST 108",
+          "IST 227",
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Fri": [
+          "IST 227",
+          "IST 227",
+          "IST 227",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "dataset_status": "active-2026-27"
+    },
+    {
+      "id": "I-ECE-A",
+      "name": "I ECE-A",
+      "semester": "I",
+      "source": "I year Time Table SEEE.pdf (page 1)",
+      "venue": "IST 602",
+      "session": null,
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:55",
+          "end": "10:45"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:45",
+          "end": "12:35"
+        },
+        {
+          "period": 5,
+          "start": "12:35",
+          "end": "13:30",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:30",
+          "end": "14:20"
+        },
+        {
+          "period": 7,
+          "start": "14:25",
+          "end": "15:15"
+        },
+        {
+          "period": 8,
+          "start": "15:20",
+          "end": "16:10"
+        },
+        {
+          "period": 9,
+          "start": "16:15",
+          "end": "17:05"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          null,
+          "IST 710",
+          "IST 710",
+          "IST 710",
+          "IST 710"
+        ],
+        "Tue": [
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          null,
+          "IST 20,21",
+          "IST 20,21",
+          "IST 602",
+          "IST 602"
+        ],
+        "Wed": [
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          null,
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602"
+        ],
+        "Thu": [
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          null,
+          "IST 510",
+          "IST 510",
+          "IST 201",
+          "IST 201"
+        ],
+        "Fri": [
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          null,
+          "IST 602",
+          "IST 626",
+          "IST 626",
+          "IST 626"
+        ]
+      },
+      "dataset_status": "archive-2024-25"
+    },
+    {
+      "id": "I-ECE-B-EEE",
+      "name": "I ECE-B / EEE",
+      "semester": "I",
+      "source": "I year Time Table SEEE.pdf (page 2)",
+      "venue": "IST 602",
+      "session": null,
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:55",
+          "end": "10:45"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:45",
+          "end": "12:35"
+        },
+        {
+          "period": 5,
+          "start": "12:35",
+          "end": "13:30",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:30",
+          "end": "14:20"
+        },
+        {
+          "period": 7,
+          "start": "14:25",
+          "end": "15:15"
+        },
+        {
+          "period": 8,
+          "start": "15:20",
+          "end": "16:10"
+        },
+        {
+          "period": 9,
+          "start": "16:15",
+          "end": "17:05"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "IST 609",
+          "IST 520",
+          "IST 602",
+          "IST 602",
+          null,
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602"
+        ],
+        "Tue": [
+          "IST 20,21",
+          "IST 20,21",
+          "IST 602",
+          "IST 602",
+          null,
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602"
+        ],
+        "Wed": [
+          "IST 710 / IST 520",
+          "IST 510",
+          "IST 510",
+          "IST 510",
+          null,
+          "IST 618",
+          "IST 602",
+          "IST 602",
+          "IST 602"
+        ],
+        "Thu": [
+          "IST 201",
+          "IST 201",
+          "IST 626",
+          "IST 710",
+          null,
+          "IST 602",
+          "IST 602",
+          "IST 626",
+          "IST 626"
+        ],
+        "Fri": [
+          "IST 617",
+          "IST 617",
+          "IST 626",
+          "IST 626",
+          null,
+          "IST 602",
+          "IST 602",
+          "IST 602",
+          "IST 602"
+        ]
+      },
+      "dataset_status": "archive-2024-25"
+    },
+    {
+      "id": "I-ECE-DS",
+      "name": "I ECE-DS",
+      "semester": "I",
+      "source": "I year Time Table SEEE.pdf (page 3)",
+      "venue": "IST 502",
+      "session": null,
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:55",
+          "end": "10:45"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:45",
+          "end": "12:35"
+        },
+        {
+          "period": 5,
+          "start": "12:35",
+          "end": "13:30",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:30",
+          "end": "14:20"
+        },
+        {
+          "period": 7,
+          "start": "14:25",
+          "end": "15:15"
+        },
+        {
+          "period": 8,
+          "start": "15:20",
+          "end": "16:10"
+        },
+        {
+          "period": 9,
+          "start": "16:15",
+          "end": "17:05"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "IST 710",
+          "IST 710",
+          "IST 502",
+          "IST 502",
+          null,
+          "IST 502",
+          "IST 502",
+          "IST 502",
+          "IST 502"
+        ],
+        "Tue": [
+          "IST 502",
+          "IST 502",
+          "IST 502",
+          "IST 502",
+          null,
+          "IST 502",
+          "IST 502",
+          "IST 502",
+          "IST 502"
+        ],
+        "Wed": [
+          "IST 510",
+          "IST 510",
+          "IST 710",
+          "IST 618",
+          null,
+          "IST 502",
+          "IST 502",
+          "IST 502",
+          "IST 502"
+        ],
+        "Thu": [
+          "IST 710",
+          "IST 510",
+          "IST 710",
+          "IST 710",
+          null,
+          "IST 502",
+          "IST 502",
+          "IST 502",
+          "IST 502"
+        ],
+        "Fri": [
+          "IST 626",
+          "IST 626",
+          "IST 502",
+          "IST 502",
+          null,
+          "IST 20,21",
+          "IST 20,21",
+          "IST 20,21",
+          "IST 20,21"
+        ]
+      },
+      "dataset_status": "archive-2024-25"
+    },
+    {
+      "id": "I-BIOTECH-B-BIOMED",
+      "name": "I Biotech-B / Biomed Engg",
+      "semester": "I",
+      "source": "I year Time Table SEEE.pdf (page 4)",
+      "venue": "IST 702",
+      "session": null,
+      "periods": [
+        {
+          "period": 1,
+          "start": "09:00",
+          "end": "09:50"
+        },
+        {
+          "period": 2,
+          "start": "09:55",
+          "end": "10:45"
+        },
+        {
+          "period": 3,
+          "start": "10:50",
+          "end": "11:40"
+        },
+        {
+          "period": 4,
+          "start": "11:45",
+          "end": "12:35"
+        },
+        {
+          "period": 5,
+          "start": "12:35",
+          "end": "13:30",
+          "type": "lunch"
+        },
+        {
+          "period": 6,
+          "start": "13:30",
+          "end": "14:20"
+        },
+        {
+          "period": 7,
+          "start": "14:25",
+          "end": "15:15"
+        },
+        {
+          "period": 8,
+          "start": "15:20",
+          "end": "16:10"
+        },
+        {
+          "period": 9,
+          "start": "16:15",
+          "end": "17:05"
+        }
+      ],
+      "days": {
+        "Mon": [
+          "IST 520",
+          "IST 520",
+          "IST 702",
+          "IST 702",
+          null,
+          "IST 702",
+          "IST 702",
+          "IST 702",
+          "IST 702"
+        ],
+        "Tue": [
+          "IST 710",
+          "IST 710",
+          "IST 520",
+          "IST 710",
+          null,
+          "IST 702",
+          "IST 702",
+          "IST 702",
+          "IST 702"
+        ],
+        "Wed": [
+          "IST 20,21",
+          "IST 20,21",
+          "IST 702",
+          "IST 702",
+          null,
+          "IST 702",
+          "IST 702",
+          "IST 702",
+          "IST 702"
+        ],
+        "Thu": [
+          "IST 710",
+          "IST 710",
+          "IST 510 / IST 520",
+          "IST 520",
+          null,
+          "IST 702",
+          "IST 702",
+          "IST 702",
+          "IST 702"
+        ],
+        "Fri": [
+          "IST 702",
+          "IST 702",
+          "IST 702",
+          "IST 702",
+          null,
+          "IST 702",
+          "IST 702",
+          "IST 702",
+          "IST 702"
+        ]
+      },
+      "dataset_status": "archive-2024-25"
+    }
+  ],
+  "period_sets": {
+    "2026-27": [
+      {
+        "period": 1,
+        "start": "09:00",
+        "end": "09:50"
+      },
+      {
+        "period": 2,
+        "start": "09:50",
+        "end": "10:40"
+      },
+      {
+        "period": 3,
+        "start": "10:50",
+        "end": "11:40"
+      },
+      {
+        "period": 4,
+        "start": "11:40",
+        "end": "12:30"
+      },
+      {
+        "period": 5,
+        "start": "12:30",
+        "end": "13:20",
+        "type": "lunch"
+      },
+      {
+        "period": 6,
+        "start": "13:20",
+        "end": "14:10"
+      },
+      {
+        "period": 7,
+        "start": "14:10",
+        "end": "15:00"
+      },
+      {
+        "period": 8,
+        "start": "15:10",
+        "end": "16:00"
+      },
+      {
+        "period": 9,
+        "start": "16:00",
+        "end": "16:50"
+      }
+    ],
+    "2024-25": [
+      {
+        "period": 1,
+        "start": "09:00",
+        "end": "09:50"
+      },
+      {
+        "period": 2,
+        "start": "09:55",
+        "end": "10:45"
+      },
+      {
+        "period": 3,
+        "start": "10:50",
+        "end": "11:40"
+      },
+      {
+        "period": 4,
+        "start": "11:45",
+        "end": "12:35"
+      },
+      {
+        "period": 5,
+        "start": "12:35",
+        "end": "13:30",
+        "type": "lunch"
+      },
+      {
+        "period": 6,
+        "start": "13:30",
+        "end": "14:20"
+      },
+      {
+        "period": 7,
+        "start": "14:25",
+        "end": "15:15"
+      },
+      {
+        "period": 8,
+        "start": "15:20",
+        "end": "16:10"
+      },
+      {
+        "period": 9,
+        "start": "16:15",
+        "end": "17:05"
+      }
+    ]
+  }
+}

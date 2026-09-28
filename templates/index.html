@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VibeCraft — Find. See. Go.</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+  <a class="brand" href="#top"><span class="brand-mark">V</span><span>VIBECRAFT</span></a>
+  <div class="top-context"><span class="live-dot"></span><span>SMART ROOM FINDER</span></div>
+  <nav><a href="#finder">Find</a><a href="#explorer">Explore</a><a href="#grid-section">Timetable</a><a href="/attendance">Attendance</a></nav>
+  <div class="top-right"><span id="clock">--:--</span><button id="datasetBtn" class="tiny-btn">Sources</button></div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow-pill"><span>ROUND 2</span><b>PHASE 1 + 2</b></div>
+    <h1>Find a room.<br><span>See where it is.</span></h1>
+    <p class="hero-lead">Tell VibeCraft what you need. Gemini understands the request, the timetable verifies it, and the map shows you exactly where to go.</p>
+    <div class="hero-steps"><div><b>01</b><span>Ask</span></div><i></i><div><b>02</b><span>Match</span></div><i></i><div><b>03</b><span>Go</span></div></div>
+    <button class="hero-cta" data-jump="#finder">Find my room <span>→</span></button>
+  </div>
+  <div class="hero-scene" aria-label="Interactive preview of the smart floor explorer">
+    <div class="scene-topline"><span>LIVE PREVIEW</span><b id="heroRoomState">SYNCING</b></div>
+    <div class="iso-floor">
+      <div class="iso-corridor"></div>
+      <button class="iso-room r1" data-room="G-401"><strong>G-401</strong><small>FREE</small></button>
+      <button class="iso-room r2 busy" data-room="G-602"><strong>G-602</strong><small>BUSY</small></button>
+      <button class="iso-room r3" data-room="G-625"><strong>G-625</strong><small>FREE</small></button>
+      <button class="iso-room r4" data-room="IST 411"><strong>IST 411</strong><small>FREE</small></button>
+      <div class="iso-core"><span>STAIRS</span><span>LIFT</span></div>
+    </div>
+    <div class="scene-caption"><span>Ground · verified room labels</span><b>Click a room</b></div>
+  </div>
+</section>
+
+<section id="finder" class="finder-section">
+  <div class="section-intro"><span class="step-no">01</span><div><p class="eyebrow">AI ROOM FINDER</p><h2>Just describe the room.</h2><p>VibeCraft turns natural language into checkable requirements.</p></div></div>
+  <div class="finder-card">
+    <div class="ask-row"><span class="spark">✦</span><input id="query" value="I need a room on the ground floor for the next 2 hours." aria-label="Describe the room you need" autocomplete="off"><button id="clearBtn" class="icon-btn" type="button">×</button><button id="searchBtn" class="ask-btn" type="button">Find rooms <span>→</span></button></div>
+    <div class="examples"><span>TRY</span><button data-q="I need a room on the ground floor for the next 2 hours.">Ground · 2h</button><button data-q="Find an AC room on the ground floor for 1 hour.">AC · Ground</button><button data-q="Find a lab for the next 2 hours.">Lab · 2h</button><button data-q="Find a classroom for 1 hour.">Classroom · 1h</button></div>
+    <div id="interpretation" class="understood hidden"></div>
+  </div>
+</section>
+
+<section id="results" class="matches hidden">
+  <div class="section-intro"><span class="step-no">02</span><div><p class="eyebrow">MATCHED ROOMS</p><h2 id="resultTitle">Rooms that fit</h2><p id="searchMeta">Checking the timetable…</p></div><div class="match-count"><b id="resultCount">0</b><span>matches</span></div></div>
+  <div id="resultCards" class="match-grid"></div>
+  <div id="warning" class="warning hidden"></div>
+</section>
+
+<section id="explorer" class="explorer-section">
+  <div class="section-intro explorer-intro"><span class="step-no">03</span><div><p class="eyebrow">SMART FLOOR EXPLORER</p><h2>See it. Pick it. Go.</h2><p>The map is deliberately simple: rooms are the interface, not decoration.</p></div><div class="explorer-controls"><label>DAY<select id="mapDay"><option>Mon</option><option>Tue</option><option>Wed</option><option>Thu</option><option>Fri</option></select></label><button id="mapNow" class="outline-btn" type="button">Use today</button></div></div>
+  <div class="explorer-shell">
+    <aside class="floor-rail">
+      <div class="rail-label">LEVEL</div>
+      <button class="floor-btn active" data-floor-view="Ground"><b>G</b><span>Ground</span><small>verified</small></button>
+      <button class="floor-btn" data-floor-view="Unknown"><b>?</b><span>Other</span><small>unverified</small></button>
+      <div class="rail-legend"><span><i class="free"></i>Free</span><span><i class="busy"></i>Busy</span><span><i class="match"></i>Match</span></div>
+    </aside>
+    <div class="map-stage">
+      <div class="map-topbar"><span id="mapTitle">GROUND FLOOR · VERIFIED</span><span><i class="live-dot"></i> LIVE TIMETABLE</span></div>
+      <div id="buildingMap" class="smart-map"></div>
+      <div class="map-bottom"><span>Click a room to inspect it</span><button id="clearSelection" class="map-link" type="button">Clear selection</button></div>
+    </div>
+    <aside id="roomInspector" class="room-panel"><div class="empty-panel"><div class="target-icon">⌖</div><h3>Select a room</h3><p>Room status, countdown and squad sharing will appear here.</p></div></aside>
+  </div>
+</section>
+
+<section id="grid-section" class="timetable-section">
+  <div class="section-intro"><span class="step-no">04</span><div><p class="eyebrow">TIMETABLE VIEW</p><h2>Need the precise slot?</h2><p>Use the period grid to audit availability room by room.</p></div><div class="grid-controls"><label>DAY<select id="day"><option>Mon</option><option>Tue</option><option>Wed</option><option>Thu</option><option>Fri</option></select></label><label>PERIOD<select id="period"></select></label></div></div>
+  <div id="timeline" class="timeline"></div>
+  <div class="grid-toolbar"><div class="legend"><span><i class="free"></i>Available</span><span><i class="busy"></i>Occupied</span><span><i class="unknown"></i>Floor unverified</span></div><div class="filter-tabs" id="floorTabs"><button class="active" data-floor="">All</button><button data-floor="Ground">Ground</button><button data-floor="unknown">Unknown floor</button></div></div>
+  <div class="grid-summary"><span id="gridTitle">Monday · P1</span><b id="gridCount">—</b></div><div id="grid" class="room-grid"></div>
+</section>
+
+<section class="trust-section"><div class="trust-card"><div><p class="eyebrow">WHY TRUST THE RESULT?</p><h2>AI understands. Timetable decides.</h2><p>Gemini only interprets the sentence. Room availability is calculated locally from the uploaded timetable. Unknown AC, capacity and floor data stays marked as unknown.</p></div><div class="trust-flow"><span>YOUR WORDS</span><b>→</b><span>GEMINI</span><b>→</b><span>TIMETABLE</span><b>→</b><span>ROOM</span></div></div></section>
+</main>
+</div>
+
+<div id="roomModal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-card"><button class="close" data-close="roomModal" type="button">×</button><p class="eyebrow">ROOM DETAIL</p><h2 id="roomModalTitle">Room</h2><div id="roomModalBody"></div></div></div>
+<div id="datasetModal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-card dataset-modal"><button class="close" data-close="datasetModal" type="button">×</button><p class="eyebrow">SOURCE TRANSPARENCY</p><h2>Loaded timetable files</h2><p class="modal-intro">These files are the source of the room-occupancy checks.</p><div id="datasetSummary" class="dataset-summary"></div><div id="datasetList"></div></div></div>
+<div id="toast" class="toast hidden"></div>
+<script src="/static/app.js"></script>
+</body></html>
